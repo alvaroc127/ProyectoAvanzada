@@ -7,6 +7,7 @@ package Negocio;
 import Servicio.Conexion;
 import Vista.VistaPrincipal;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author felipe
@@ -20,7 +21,7 @@ public class Proyecto20162 {
         // TODO code application logic here
       Conexion co= Conexion.getConexion();   
       new VistaPrincipal().setVisible(true);
-        
+        JOptionPane.showMessageDialog(null,"Hola MUNDO");//adicionado hola muynod
         
     }
     
