@@ -26,6 +26,7 @@ public final class ClienteDB {
         PreparedStatement stat=null;
         int rowns=0;
         try{
+        Conexion.getConexion();
         con=(Connection) Conexion.getConecxion();
         stat=con.prepareStatement(InsertarDB);
         int index=1;

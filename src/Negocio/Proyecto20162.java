@@ -19,9 +19,9 @@ public class Proyecto20162 {
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
-      Conexion co= Conexion.getConexion();   
+         
       new VistaPrincipal().setVisible(true);
-        JOptionPane.showMessageDialog(null,"Hola MUNDO");//adicionado hola muynod
+        //JOptionPane.showMessageDialog(null,"Hola MUNDO");//adicionado hola muynod
         
     }
     

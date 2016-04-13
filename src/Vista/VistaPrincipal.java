@@ -51,6 +51,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txTelHues = new javax.swing.JTextField();
         btnRegistro = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        TxtrecioHab = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtTipHab = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,6 +192,55 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registro Cliente", jPanel1);
 
+        jLabel5.setText("Precio");
+
+        jLabel9.setText("Tipo");
+
+        jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel9))
+                        .addGap(135, 135, 135)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TxtrecioHab)
+                            .addComponent(txtTipHab, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(jButton1)))
+                .addContainerGap(126, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtrecioHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtTipHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addComponent(jButton1)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Registro Habitacion", jPanel3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -230,6 +285,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR Campo INVALIDOS");
         }
     }//GEN-LAST:event_btnRegistro1ActionPerformed
+
+    
+    /**
+     * Metodo que permite registrar una habitacion
+     * @param evt 
+     */
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public boolean validarRegis(){
         boolean ban=true;
@@ -307,23 +374,29 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxnombreCiudad;
+    private javax.swing.JTextField TxtrecioHab;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnRegistro1;
     private javax.swing.JComboBox jBestrella;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField txDireccHue;
     private javax.swing.JTextField txDireccion;
     private javax.swing.JTextField txTelHotel;
     private javax.swing.JTextField txTelHues;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTipHab;
     // End of variables declaration//GEN-END:variables
 }

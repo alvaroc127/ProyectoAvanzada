@@ -12,7 +12,7 @@ package Negocio;
 public class Habitacion {
     private int numero_hab;
     private double precio;
-    //private  Tipo tipo;
+    private  Tipo tipo;
 
     public int getNumero_hab() {
         return numero_hab;

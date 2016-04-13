@@ -25,6 +25,7 @@ public class HotelJDBC {
         ResultSet rs= null;
         int rows=0;
         try{
+        Conexion.getConexion();
         conn= (Connection)Conexion.getConecxion();
         stat= conn.prepareStatement(SQL_INSERT_HOT);
         int index=1;
