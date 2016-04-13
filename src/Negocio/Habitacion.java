@@ -14,6 +14,15 @@ public class Habitacion {
     private double precio;
     private  Tipo tipo;
 
+    public Habitacion(int numero_hab, double precio, String tipo) {
+        FctoryHabitacion fa=new FctoryHabitacion();
+        this.numero_hab = numero_hab;
+        this.precio = precio;
+        this.tipo=fa.getHabitacion(tipo);
+    }
+
+    
+    
     public int getNumero_hab() {
         return numero_hab;
     }
@@ -29,6 +38,15 @@ public class Habitacion {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+    
     
     
 }

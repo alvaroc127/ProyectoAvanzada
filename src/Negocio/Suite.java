@@ -22,6 +22,6 @@ public class Suite implements Tipo{
     
     @Override
     public String getTipo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getClass().getName();
     }
 }

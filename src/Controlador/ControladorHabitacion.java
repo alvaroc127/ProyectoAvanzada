@@ -14,7 +14,7 @@ import Negocio.Habitacion;
  */
 public class ControladorHabitacion {
     private Habitacion habit;
-    private HabitacionJDBC habJDBC;
+    private HabitacionJDBC habJDBC=new HabitacionJDBC();
     
     public ControladorHabitacion(){
             
@@ -36,11 +36,12 @@ public class ControladorHabitacion {
         this.habit = habit;
     }
     
-   public void guardarHabita(double precio){
-       
-   
+   public void guardarHabita(double precio,String tipo){
+       habJDBC.insertarHabit(precio, tipo);
    }
     
+   
+   
     
     
     

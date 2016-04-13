@@ -16,12 +16,20 @@ public class FctoryHabitacion {
     }
     
     
-    public Tipo getHabitacion(){
-    
-    
-    
-    
-    return null;
+    public Tipo getHabitacion(String tipo){
+        Tipo hab=null;
+        if(tipo.equalsIgnoreCase("suite")){
+        hab=new Suite();
+        }else{
+            if(tipo.equalsIgnoreCase("doble")){
+                hab=new Doble();
+            }else{
+                if(tipo.equalsIgnoreCase("sencilla")){
+                    hab=new Sencilla();
+                }
+            }
+        }
+    return hab;
     }
     
 }
