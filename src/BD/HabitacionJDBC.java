@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class HabitacionJDBC {
     private String INSERTASQL="INSERT INTO habitacion (precio,tipo) VALUES (?,?)";
-    private String SQL_HABITACION="SELECT * FROM habitacion ORDER BY DESC";
+    private String SQL_HABITACION="SELECT * FROM habitacion ORDER BY numhab DESC";
     
     public int insertarHabit(double precio,String tipo){
         Connection cos=null;
@@ -53,7 +53,7 @@ public class HabitacionJDBC {
         stat=co.prepareStatement(SQL_HABITACION);
         rs=stat.executeQuery();
         while(rs.next()){
-            Habitacion hab=new Habitacion(Integer.parseInt(rs.getString("numero")),Double.parseDouble(rs.getString("precio")),rs.getString("tipo"));
+            Habitacion hab=new Habitacion(Integer.parseInt(rs.getString("numhab")),Double.parseDouble(rs.getString("precio")),rs.getString("tipo"));
             habitaciones.add(hab);
         }
         }catch(SQLException ex){

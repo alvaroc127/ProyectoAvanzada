@@ -22,7 +22,7 @@ public class Conexion {
     private static String db="HotelesBD";
     private static String JDBC_URL="jdbc:postgresql://localhost:5432/"+db;
     private static String JDBC_USER="postgres";
-    private static String JDBC_PASWORD="0000";
+    private static String JDBC_PASWORD="ADMIN";//0000 en u sdefetnecto
     private static Driver driver=null;
     private static Conexion co;
             

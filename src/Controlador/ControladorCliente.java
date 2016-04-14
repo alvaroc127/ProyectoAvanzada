@@ -7,6 +7,7 @@ package Controlador;
 
 import BD.ClienteDB;
 import Negocio.Cliente;
+import Negocio.Habitacion;
 import Negocio.Persona;
 import java.util.ArrayList;
 

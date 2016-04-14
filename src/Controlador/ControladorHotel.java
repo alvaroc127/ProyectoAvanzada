@@ -7,6 +7,7 @@ package Controlador;
 
 import BD.HotelJDBC;
 import Negocio.Hotel;
+import java.util.ArrayList;
 
 /**
  *
@@ -36,9 +37,16 @@ public class ControladorHotel {
         this.hotelJDBC = hotelJDBC;
     }
     
-    public void grabarHotel(String nombreCiudd,String dirhhotel,int estrellas,int telHotel){
-    hotelJDBC.insert(dirhhotel, dirhhotel,estrellas, telHotel);
+    public void grabarHotel(String nombreCiudd,String dirhhotel,int estrellas, int idciudad,int telHotel){
+    hotelJDBC.insert(nombreCiudd, dirhhotel,estrellas,idciudad,telHotel);
     }
+    
+    public ArrayList<Hotel> listaHoteles(){
+    return hotelJDBC.listaHot();
+    }
+    
+    
+    
     
     
 }

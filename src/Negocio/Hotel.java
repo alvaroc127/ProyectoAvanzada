@@ -20,10 +20,46 @@ public class Hotel {
     private String nombreCiudad;
     private  ArrayList<Habitacion> Habitaciones; 
     private int numeroEstrellas;
+    private int telHot;
 
     public Hotel() {
     }
 
+    public Hotel(String direccion, int id_ciudad, int id_hotel, String nombre, String nombreCiudad, ArrayList<Habitacion> Habitaciones, int numeroEstrellas) {
+        this.direccion = direccion;
+        this.id_ciudad = id_ciudad;
+        this.id_hotel = id_hotel;
+        this.nombre = nombre;
+        this.nombreCiudad = nombreCiudad;
+        this.Habitaciones = Habitaciones;
+        this.numeroEstrellas = numeroEstrellas;
+    }
+    
+
+    public Hotel(String nombre,String nombreCiudad,int id_ciudad,int id_hotel,int numeroEstrellas,int telHot){
+        this.nombre=nombre;
+        this.nombreCiudad=nombreCiudad;
+        this.id_ciudad=id_ciudad;
+        this.id_hotel=id_hotel;
+        this.numeroEstrellas=numeroEstrellas;
+        this.telHot=telHot;
+    }
+
+    public Hotel(String nombre){
+    this.nombre=nombre;
+    }
+    
+    
+    public int getTelHot() {
+        return telHot;
+    }
+
+    public void setTelHot(int telHot) {
+        this.telHot = telHot;
+    }
+    
+    
+    
     public String getDireccion() {
         return direccion;
     }

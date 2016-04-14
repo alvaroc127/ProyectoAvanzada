@@ -19,7 +19,7 @@ public final class ClienteDB {
     private final String InsertarDB="INSERT INTO huesped (nomhuesp,dirhuesp,telhuesp) values(?,?,?)";
     private final String UpdateDB="UPDATE huesped SET nomhuesp=?, dirhuesp=?, telhuesp=? where idhuesp=?";
     private final String elimniDB="DELETE FROM huesped WHERE idhuespe=?";
-    private final String SQL_lISTAR="select * FROM huesed ORDER BY DESC";
+    private final String SQL_lISTAR="select * FROM huesed ORDER BY idhuespe DESC";
     
     
     public int insertar(String nombre,String dirhuespe,int telfono){

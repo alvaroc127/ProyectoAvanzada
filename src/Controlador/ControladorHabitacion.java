@@ -7,6 +7,7 @@ package Controlador;
 
 import BD.HabitacionJDBC;
 import Negocio.Habitacion;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,9 +41,7 @@ public class ControladorHabitacion {
        habJDBC.insertarHabit(precio, tipo);
    }
     
-   
-   
-    
-    
-    
+  public ArrayList<Habitacion> listaHabitaciones(){
+     return habJDBC.listarHaibtacion();
+    }
 }

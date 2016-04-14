@@ -275,7 +275,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if(validarCampo()==true){
             try{
                 int numE=Integer.parseInt((String) jBestrella.getSelectedItem());
-                ch.grabarHotel(TxnombreCiudad.getText(),txDireccion.getText(),numE,Integer.parseInt(txTelHotel.getText()));
+                //ch.grabarHotel(TxnombreCiudad.getText(),txDireccion.getText(),numE,,Integer.parseInt(txTelHotel.getText()));
             }catch(NumberFormatException ne){
                 ne.printStackTrace();
             }catch(NullPointerException ex){
