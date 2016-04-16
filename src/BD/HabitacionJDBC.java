@@ -5,7 +5,9 @@
  */
 package BD;
 
+import Negocio.FctoryHabitacion;
 import Negocio.Habitacion;
+import Negocio.Tipo;
 import Servicio.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,8 +20,9 @@ import java.util.ArrayList;
  * @author felipe
  */
 public class HabitacionJDBC {
-    private String INSERTASQL="INSERT INTO habitacion (precio,tipo) VALUES (?,?)";
-    private String SQL_HABITACION="SELECT * FROM habitacion ORDER BY numhab DESC";
+    private final String INSERTASQL="INSERT INTO habitacion (precio,tipo) VALUES (?,?)";
+    private final String SQL_HABITACION=
+            "SELECT * FROM habitacion";
     
     public int insertarHabit(double precio,String tipo){
         Connection cos=null;
@@ -53,8 +56,8 @@ public class HabitacionJDBC {
         stat=co.prepareStatement(SQL_HABITACION);
         rs=stat.executeQuery();
         while(rs.next()){
-            Habitacion hab=new Habitacion(Integer.parseInt(rs.getString("numhab")),Double.parseDouble(rs.getString("precio")),rs.getString("tipo"));
-            habitaciones.add(hab);
+            Habitacion hab1=new Habitacion(Integer.parseInt(rs.getString("numhab")),Double.parseDouble(rs.getString("precio")));
+            habitaciones.add(hab1);
         }
         }catch(SQLException ex){
         ex.printStackTrace();
@@ -65,6 +68,27 @@ public class HabitacionJDBC {
         }
     }
     
+    
+    public ArrayList listarTipoHab(){
+        Connection co=null;
+        PreparedStatement stat=null;
+        ResultSet rs=null;
+        ArrayList tipos=new ArrayList();
+        try{   
+        co=(Connection)Conexion.getConecxion();
+        stat=co.prepareStatement(SQL_HABITACION);
+        rs=stat.executeQuery();
+        while(rs.next()){
+            tipos.add(rs.getString("tipo"));
+        }
+        }catch(SQLException ex){
+        ex.printStackTrace();
+        }finally{
+            Conexion.close(co);
+            Conexion.close(stat);
+        return tipos;
+        }
+    }
     
     
     

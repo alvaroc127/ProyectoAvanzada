@@ -47,12 +47,25 @@ public class ControladorCliente {
     public void setCldb(ClienteDB cldb) {
         this.cldb = cldb;
     }
-    
-    
-    
-    
     public void grabarCliente(String nombre,String dirHuespe,int tel){
         cldb.insertar(nombre,dirHuespe, tel);
+    }
+    
+    public ArrayList<Cliente> validarCatGol(){
+        if(cldb.obtenerCatGolden()!=null){
+        return cldb.obtenerCatGolden();
+        }else{
+        return null;
+        }
+    }
+    
+    
+    public ArrayList<Cliente> validarCatPremi(){
+        if(cldb.obtenerCatGolden()!=null){
+        return cldb.obtenerCatGolden();
+        }else{
+        return null;
+        }
     }
     
     

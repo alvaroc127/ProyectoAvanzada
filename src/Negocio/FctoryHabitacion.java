@@ -20,16 +20,22 @@ public class FctoryHabitacion {
         Tipo hab=null;
         if(tipo.equalsIgnoreCase("suite")){
         hab=new Suite();
+        ((Suite)hab).setCapacidad(5);
+        return hab;
         }else{
             if(tipo.equalsIgnoreCase("doble")){
                 hab=new Doble();
+                ((Doble)hab).setCapacidad(2);
+                return hab;
             }else{
                 if(tipo.equalsIgnoreCase("sencilla")){
                     hab=new Sencilla();
+                    ((Sencilla)hab).setCapacidad(1);
+                    return hab;
                 }
             }
         }
-    return hab;
+        return hab;
     }
     
 }

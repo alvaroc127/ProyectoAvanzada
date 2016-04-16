@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author felipe
  */
 public class ControladorHabitacion {
-    private Habitacion habit;
+    private Habitacion habit=new Habitacion();
     private HabitacionJDBC habJDBC=new HabitacionJDBC();
     
     public ControladorHabitacion(){
@@ -42,6 +42,10 @@ public class ControladorHabitacion {
    }
     
   public ArrayList<Habitacion> listaHabitaciones(){
-     return habJDBC.listarHaibtacion();
+     return habit.cgarTipos(habJDBC.listarHaibtacion(),habJDBC.listarTipoHab());
     }
+  
+  
+  
+  
 }

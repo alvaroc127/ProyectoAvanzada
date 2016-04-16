@@ -5,6 +5,8 @@
  */
 package Negocio;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author felipe
@@ -14,13 +16,21 @@ public class Habitacion {
     private double precio;
     private  Tipo tipo;
 
-    public Habitacion(int numero_hab, double precio, String tipo) {
-        FctoryHabitacion fa=new FctoryHabitacion();
-        this.numero_hab = numero_hab;
-        this.precio = precio;
-        this.tipo=fa.getHabitacion(tipo);
+    public Habitacion() {
     }
 
+    
+    
+    public Habitacion(int numero_hab, double precio, Tipo tpo) {
+        this.numero_hab = numero_hab;
+        this.precio = precio;
+        tipo=tpo;
+    }
+
+    public Habitacion(int numero, double precio){
+    this.numero_hab=numero;
+    this.precio=precio;
+    }
     
     
     public int getNumero_hab() {
@@ -46,6 +56,16 @@ public class Habitacion {
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
+    
+    public ArrayList<Habitacion> cgarTipos(ArrayList<Habitacion> habitacione,ArrayList tipo){
+        FctoryHabitacion fac=new FctoryHabitacion();
+        for(int i=0;i< habitacione.size();i++){
+           habitacione.get(i).setTipo(fac.getHabitacion((String)tipo.get(i)));
+        }
+  return habitacione;
+  }
+
+   
     
     
     

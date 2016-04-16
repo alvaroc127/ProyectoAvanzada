@@ -16,6 +16,16 @@ public class Suite implements Tipo{
         
     }
 
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    
+    
     public Suite(int capacidad) {
         this.capacidad = capacidad;
     }

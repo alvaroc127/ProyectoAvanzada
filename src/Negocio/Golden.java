@@ -13,10 +13,20 @@ import java.sql.Date;
  */
 public class Golden implements Categoria{
 
-    public Golden() {
+    private Date antiguedad;
+    private Descuento des;
+
+    
+        public Golden() {
     }
     
-    private Date antiguedad;
+    public Descuento getDes() {
+        return des;
+    }
+
+    public void setDes(Descuento des) {
+        this.des = des;
+    }
 
     public Date getAntiguedad() {
         return antiguedad;

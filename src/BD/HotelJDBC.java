@@ -25,6 +25,7 @@ public class HotelJDBC {
    private final String SQL_NomCiu=
            "SELECT nomciudad from ciudad ORDER BY idciudad DESC";
    
+    
    
    public int insert(String nomhotel,String dirhotel,int estrellas,int idciudad,int telhotel){
         Connection conn=null;
@@ -117,7 +118,10 @@ public class HotelJDBC {
        while(rs.next()){
            //idciudad=Integer.parseInt(rs.getString("idciudad"));
            //Hotel h=new Hotel(rs.getString("nomhotel"),rs.getString("nomciudad"),idciudad,Integer.parseInt(rs.getString("idhotel")),Integer.parseInt(rs.getString("estrellas")),Integer.parseInt("telHotel"));
-           Hotel h=new Hotel(rs.getString("nomhotel"));
+           Hotel h=new Hotel(rs.getString("nomhotel"),rs.getString("nomciudad"),Integer.parseInt(rs.getString("idciudad")));
+           h.setNumeroEstrellas(Integer.parseInt(rs.getString("estrellas")));
+           h.setTelHot(Integer.parseInt(rs.getString("telhotel")));
+           h.setId_hotel(Integer.parseInt(rs.getString("idhotel")));
            hot.add(h);
        }
        }catch(SQLException es){

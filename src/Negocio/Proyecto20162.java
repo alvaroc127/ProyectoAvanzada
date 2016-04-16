@@ -26,10 +26,29 @@ public class Proyecto20162 {
         ControladorHabitacion coH=new ControladorHabitacion();
         ControladorHotel conHo=new ControladorHotel();
         //conHo.grabarHotel("Hotel 7","CR 51", 3, 5,345334);
+        /**
         for(int i=0;i<conHo.listaHoteles().size();i++){
         System.out.println(conHo.listaHoteles().get(i).getNombre());
+        System.out.println(conHo.listaHoteles().get(i).getNombreCiudad());
+        System.out.println(conHo.listaHoteles().get(i).getId_ciudad());
+        System.out.println(conHo.listaHoteles().get(i).getNumeroEstrellas());
+        System.out.println(conHo.listaHoteles().get(i).getId_hotel());
+        }
+        **/
+        
+        for(int j=0;j<coH.listaHabitaciones().size();j++){
+            System.out.println(coH.listaHabitaciones().size()+"EST OES E LTAMAÑO");
+            System.out.println(coH.listaHabitaciones().get(j).getNumero_hab());
+            System.out.println(coH.listaHabitaciones().get(j).getTipo().getTipo());
         }
         //System.out.println(coH.listaHabitaciones().toString());
+        solicitcat();
     }
     
+    
+    public static void solicitcat(){
+    
+    
+    
+    }
 }

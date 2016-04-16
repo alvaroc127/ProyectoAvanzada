@@ -13,7 +13,17 @@ import java.sql.Date;
  */
 public class Premiun implements Categoria {
     private Date antiguedad;
+    private Descuento desc;
 
+    public Descuento getDesc() {
+        return desc;
+    }
+
+    public void setDesc(Descuento desc) {
+        this.desc = desc;
+    }
+    
+    
     public Premiun() {
     }
 

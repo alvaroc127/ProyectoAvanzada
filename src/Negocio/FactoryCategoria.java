@@ -10,8 +10,18 @@ package Negocio;
  * @author felipe
  */
 public class FactoryCategoria {
-    public Categoria getCategoria(){
-        
+
+    public FactoryCategoria() {
+    }
+    
+    public Categoria getCategoria(String tipc){
+        if(tipc.equalsIgnoreCase("Golden")){
+            return new Golden();
+        }else{
+               if(tipc.equalsIgnoreCase("premiun")){
+               return new Premiun();
+               }
+        }    
     return null;
     }
     

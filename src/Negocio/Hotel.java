@@ -45,8 +45,10 @@ public class Hotel {
         this.telHot=telHot;
     }
 
-    public Hotel(String nombre){
+    public Hotel(String nombre,String nombreCiudad,int id_ciudad){
     this.nombre=nombre;
+    this.nombreCiudad=nombreCiudad;
+    this.id_ciudad=id_ciudad;
     }
     
     
