@@ -14,14 +14,12 @@ public class HotelJDBC {
     
    private final  String SQL_INSERT_HOT=
     "INSERT INTO Hotel (nomhotel,dirhotel,estrellas,idciudad,telhotel) VALUES(?,?,?,?,?)";
-    
    private final String SQL_UPDATE_HOT=
            "UPDATE  Hotel set nomhotel=?,dirhotel=?,estrellas=?,idciudad=?,telhotel=? WHERE idhotel=?";
    private final String SQL_DELETE_HOT=
            "DELETE Hotel WHERE idhotel= ?";
    private final String SQL_LISTA=
            "SELECT * FROM v1";
-   
    private final String SQL_NomCiu=
            "SELECT nomciudad from ciudad ORDER BY idciudad DESC";
    

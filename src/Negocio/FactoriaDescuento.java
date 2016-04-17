@@ -15,8 +15,14 @@ public class FactoriaDescuento{
     }
     
     
-    public Descuento getDescuento(){
-    
+    public Descuento getDescuento(String tipo){
+        if(tipo.equalsIgnoreCase("normal")){
+            return new Normal(5);
+    }else{
+           if(tipo.equalsIgnoreCase("especial1")){
+           return new Especial1(10);
+           }
+            }
     return null;
     }
     

@@ -51,22 +51,16 @@ public class ControladorCliente {
         cldb.insertar(nombre,dirHuespe, tel);
     }
     
-    public ArrayList<Cliente> validarCatGol(){
-        if(cldb.obtenerCatGolden()!=null){
-        return cldb.obtenerCatGolden();
+    public ArrayList<Cliente> validarCat(int codCli){
+        if(cldb.obtenerCat(codCli)!=null){
+        return cldb.obtenerCat(codCli);
         }else{
         return null;
         }
     }
     
     
-    public ArrayList<Cliente> validarCatPremi(){
-        if(cldb.obtenerCatGolden()!=null){
-        return cldb.obtenerCatGolden();
-        }else{
-        return null;
-        }
-    }
+    
     
     
     

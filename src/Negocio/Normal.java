@@ -28,10 +28,7 @@ public class Normal implements Descuento {
     }
 
     @Override
-    public float aplicarDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
+    public int returnaDesc() {
+        return porcentaje;
+    } 
 }

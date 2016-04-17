@@ -5,6 +5,8 @@
  */
 package Negocio;
 
+import java.sql.Date;
+
 /**
  *
  * @author felipe
@@ -14,12 +16,15 @@ public class FactoryCategoria {
     public FactoryCategoria() {
     }
     
-    public Categoria getCategoria(String tipc){
+    public Categoria getCategoria(String tipc,Date antigu){
+        FactoriaDescuento fd=new FactoriaDescuento();
         if(tipc.equalsIgnoreCase("Golden")){
-            return new Golden();
+            Categoria ca=new Golden(antigu,fd.getDescuento("normal"));
+            return ca;
         }else{
                if(tipc.equalsIgnoreCase("premiun")){
-               return new Premiun();
+                   Categoria c1=new Premiun(antigu,fd.getDescuento("Especial1"));
+               return c1;
                }
         }    
     return null;

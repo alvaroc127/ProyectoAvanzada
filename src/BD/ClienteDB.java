@@ -6,8 +6,10 @@
 package BD;
 
 import Negocio.Cliente;
+import Negocio.FactoryCategoria;
 import Servicio.Conexion;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,8 +24,7 @@ public final class ClienteDB {
     private final String UpdateDB="UPDATE huesped SET nomhuesp=?, dirhuesp=?, telhuesp=? where idhuesp=?";
     private final String elimniDB="DELETE FROM huesped WHERE idhuespe=?";
     private final String SQL_lISTAR="select * FROM huesed ORDER BY idhuespe DESC";
-    private final String ValidarCatGol= "select * from hospeda natural join huesped where extract(YEAR from current_date)-extract(YEAR from fechsal)>2 AND idhuesp= ?";
-    private final String ValidarCatPrem= "select * from hospeda natural join huesped where extract(YEAR from current_date)-extract(YEAR from fechsal)>4 AND idhuesp= ?";
+    private final String ValidarCat= "SELECT * from v2 where idhuesp=?";
     
     public int insertar(String nombre,String dirhuespe,int telfono){
         Connection con=null;
@@ -91,40 +92,20 @@ public final class ClienteDB {
         }
     }
     
-    public ArrayList<Cliente> obtenerCatGolden(){
+    public ArrayList<Cliente> obtenerCat(int codCli){
     Connection co=null;
     PreparedStatement stat=null;
     ResultSet rs=null;
     ArrayList<Cliente> cliet=new ArrayList();
+        FactoryCategoria fc=new FactoryCategoria();
     try{
         co=Conexion.getConecxion();
-        stat=co.prepareStatement(ValidarCatGol);
+        stat=co.prepareStatement(ValidarCat);
+        int index=1;
+        stat.setInt(index++,codCli);
         rs=stat.executeQuery();
         while(rs.next()){
-            Cliente ca=new Cliente(Integer.parseInt(rs.getString("idhuesp")),rs.getString("nomheusp"),Integer.parseInt(rs.getString("telhuesp")));
-            cliet.add(ca);
-        }
-    }catch(SQLException ex){
-    ex.printStackTrace();
-    }finally{
-    Conexion.close(co);
-    Conexion.close(stat);
-    Conexion.close(rs);
-    return cliet;
-        }
-    }
-    
-    public ArrayList<Cliente> obtenerCatPremi(){
-    Connection co=null;
-    PreparedStatement stat=null;
-    ResultSet rs=null;
-    ArrayList<Cliente> cliet=new ArrayList();
-    try{
-        co=Conexion.getConecxion();
-        stat=co.prepareStatement(ValidarCatPrem);
-        rs=stat.executeQuery();
-        while(rs.next()){
-            Cliente ca=new Cliente(Integer.parseInt(rs.getString("idhuesp")),rs.getString("nomheusp"),Integer.parseInt(rs.getString("telhuesp")));
+            Cliente ca=new Cliente(Integer.parseInt(rs.getString("idhuesp")),rs.getString("nomhuesp"),Integer.parseInt(rs.getString("telhuesp")),fc.getCategoria(rs.getString("categoria"),Date.valueOf(rs.getString("fechsal"))));
             cliet.add(ca);
         }
     }catch(SQLException ex){

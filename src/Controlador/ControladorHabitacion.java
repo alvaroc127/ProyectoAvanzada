@@ -42,7 +42,7 @@ public class ControladorHabitacion {
    }
     
   public ArrayList<Habitacion> listaHabitaciones(){
-     return habit.cgarTipos(habJDBC.listarHaibtacion(),habJDBC.listarTipoHab());
+     return habJDBC.listarHaibtacion();
     }
   
   

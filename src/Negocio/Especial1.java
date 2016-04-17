@@ -27,9 +27,11 @@ public class Especial1 implements Descuento{
         this.porcentaje = porcentaje;
     }
 
+   
+   
     @Override
-    public float aplicarDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int returnaDesc() {
+       return porcentaje;
     }
     
     

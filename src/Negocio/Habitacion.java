@@ -21,10 +21,10 @@ public class Habitacion {
 
     
     
-    public Habitacion(int numero_hab, double precio, Tipo tpo) {
+    public Habitacion(int numero_hab, double precio, Tipo fac) {
         this.numero_hab = numero_hab;
         this.precio = precio;
-        tipo=tpo;
+        this.tipo=fac;
     }
 
     public Habitacion(int numero, double precio){
@@ -55,18 +55,5 @@ public class Habitacion {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
-    }
-    
-    public ArrayList<Habitacion> cgarTipos(ArrayList<Habitacion> habitacione,ArrayList tipo){
-        FctoryHabitacion fac=new FctoryHabitacion();
-        for(int i=0;i< habitacione.size();i++){
-           habitacione.get(i).setTipo(fac.getHabitacion((String)tipo.get(i)));
-        }
-  return habitacione;
-  }
-
-   
-    
-    
-    
+    } 
 }

@@ -32,5 +32,10 @@ public class Cliente extends Persona{
         super(id_persona, nombre, tel);
     }
     
+    public Cliente(int id_persona, String nombre, int tel, Categoria ca) {
+        super(id_persona, nombre, tel);
+        this.cat=ca;
+    }
+    
         
 }

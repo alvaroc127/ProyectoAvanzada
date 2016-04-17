@@ -10,6 +10,6 @@ package Negocio;
  * @author felipe
  */
 public interface Categoria {
-    public void traerDescuento();
-    
+    public String nomCategoria();
+    public int descuen();
 }

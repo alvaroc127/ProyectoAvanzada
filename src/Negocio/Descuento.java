@@ -10,5 +10,5 @@ package Negocio;
  * @author felipe
  */
 public interface Descuento {
-    public float aplicarDescuento();
+    public int returnaDesc();
 }

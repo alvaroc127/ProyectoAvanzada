@@ -15,6 +15,9 @@ public class Especial implements Servicio{
     private double cargo;
     private int comidad;
 
+    public Especial() {
+    }
+
     public Especial(int bedidas, double cargo, int comidad) {
         this.bedidas = bedidas;
         this.cargo = cargo;

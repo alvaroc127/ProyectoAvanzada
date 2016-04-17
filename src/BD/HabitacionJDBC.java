@@ -50,13 +50,14 @@ public class HabitacionJDBC {
         Connection co=null;
         PreparedStatement stat=null;
         ResultSet rs=null;
+        FctoryHabitacion fac=new FctoryHabitacion();
         ArrayList<Habitacion> habitaciones=new ArrayList<Habitacion>();
         try{   
         co=(Connection)Conexion.getConecxion();
         stat=co.prepareStatement(SQL_HABITACION);
         rs=stat.executeQuery();
         while(rs.next()){
-            Habitacion hab1=new Habitacion(Integer.parseInt(rs.getString("numhab")),Double.parseDouble(rs.getString("precio")));
+            Habitacion hab1=new Habitacion(Integer.parseInt(rs.getString("numhab")),Double.parseDouble(rs.getString("precio")),fac.getHabitacion(rs.getString("tipo")));
             habitaciones.add(hab1);
         }
         }catch(SQLException ex){
@@ -69,26 +70,7 @@ public class HabitacionJDBC {
     }
     
     
-    public ArrayList listarTipoHab(){
-        Connection co=null;
-        PreparedStatement stat=null;
-        ResultSet rs=null;
-        ArrayList tipos=new ArrayList();
-        try{   
-        co=(Connection)Conexion.getConecxion();
-        stat=co.prepareStatement(SQL_HABITACION);
-        rs=stat.executeQuery();
-        while(rs.next()){
-            tipos.add(rs.getString("tipo"));
-        }
-        }catch(SQLException ex){
-        ex.printStackTrace();
-        }finally{
-            Conexion.close(co);
-            Conexion.close(stat);
-        return tipos;
-        }
-    }
+    
     
     
     

@@ -19,6 +19,10 @@ public class Golden implements Categoria{
     
         public Golden() {
     }
+        
+     public Golden(Date fechaAn){
+     this.antiguedad=fechaAn;
+     }
     
     public Descuento getDes() {
         return des;
@@ -36,9 +40,19 @@ public class Golden implements Categoria{
         this.antiguedad = antiguedad;
     }
 
+    public Golden(Date antiguedad, Descuento des) {
+        this.antiguedad = antiguedad;
+        this.des = des;
+    }
+
     @Override
-    public void traerDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String nomCategoria() {
+        return getClass().getName();
+    }
+
+    @Override
+    public int descuen() {
+        return des.returnaDesc();
     }
     
 }

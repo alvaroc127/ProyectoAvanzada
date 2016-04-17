@@ -14,7 +14,9 @@ import Controlador.*;
  * @author felipe
  */
 public class Proyecto20162 {
-     
+      static ControladorHabitacion coH=new ControladorHabitacion();
+        static ControladorHotel conHo=new ControladorHotel();
+        static ControladorCliente cl=new ControladorCliente();
     /**
      * @param args the command line arguments
      */
@@ -23,8 +25,7 @@ public class Proyecto20162 {
          
       //new VistaPrincipal().setVisible(true);
         //JOptionPane.showMessageDialog(null,"Hola MUNDO");//adicionado hola muynod
-        ControladorHabitacion coH=new ControladorHabitacion();
-        ControladorHotel conHo=new ControladorHotel();
+       
         //conHo.grabarHotel("Hotel 7","CR 51", 3, 5,345334);
         /**
         for(int i=0;i<conHo.listaHoteles().size();i++){
@@ -42,13 +43,16 @@ public class Proyecto20162 {
             System.out.println(coH.listaHabitaciones().get(j).getTipo().getTipo());
         }
         //System.out.println(coH.listaHabitaciones().toString());
-        solicitcat();
+        
+       for(int l=0;l<cl.validarCat(1032468188).size();l++){
+           System.out.println(cl.validarCat(1032468188).get(l).getNombre());
+           System.out.println(cl.validarCat(1032468188).get(l).getCat().nomCategoria());
+           System.out.println(cl.validarCat(1032468188).get(l).getCat().descuen());
+       }
+       
     }
     
-    
-    public static void solicitcat(){
-    
+   
     
     
-    }
 }

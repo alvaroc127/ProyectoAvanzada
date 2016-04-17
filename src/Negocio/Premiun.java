@@ -15,6 +15,13 @@ public class Premiun implements Categoria {
     private Date antiguedad;
     private Descuento desc;
 
+    public Premiun(Date antiguedad, Descuento desc) {
+        this.antiguedad = antiguedad;
+        this.desc = desc;
+    }
+
+    
+    
     public Descuento getDesc() {
         return desc;
     }
@@ -40,9 +47,16 @@ public class Premiun implements Categoria {
     }
 
     @Override
-    public void traerDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String nomCategoria() {
+       return getClass().getName();
     }
+
+    @Override
+    public int descuen() {
+        return desc.returnaDesc();
+    }
+
+   
     
     
     

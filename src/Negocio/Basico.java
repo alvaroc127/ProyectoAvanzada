@@ -13,6 +13,9 @@ public class Basico implements Servicio{
     private double cargo;
     private int comidas;
 
+    public Basico() {
+    }
+
     public Basico(double cargo, int comidas) {
         this.cargo = cargo;
         this.comidas = comidas;
