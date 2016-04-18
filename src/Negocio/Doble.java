@@ -31,7 +31,7 @@ public class Doble implements Tipo {
     
     @Override
     public String getTipo() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
     
 }
