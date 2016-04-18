@@ -47,7 +47,7 @@ public class Golden implements Categoria{
 
     @Override
     public String nomCategoria() {
-        return getClass().getName();
+        return getClass().getSuperclass().getName();
     }
 
     @Override
