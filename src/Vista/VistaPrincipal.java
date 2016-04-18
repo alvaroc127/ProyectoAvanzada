@@ -6,8 +6,10 @@
 package Vista;
 
 import Controlador.ControladorCliente;
+import Controlador.ControladorHabitacion;
 import Controlador.ControladorHotel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,11 +18,22 @@ import javax.swing.JOptionPane;
 public class VistaPrincipal extends javax.swing.JFrame {
     private ControladorCliente cl=new ControladorCliente();
     private ControladorHotel ch=new ControladorHotel();
+    private ControladorHabitacion coH=new ControladorHabitacion();
     /**
      * Creates new form RegistroCliente
      */
     public VistaPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
+        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
+        Object[] fila=new Object[modelo.getColumnCount()];
+        for(int i=0; i<coH.listaHabitaciones().size();i++){
+            fila[0]=coH.listaHabitaciones().get(i).getNumero_hab();
+            fila[1]=coH.listaHabitaciones().get(i).getTipo().getTipo();
+            fila[2]=coH.listaHabitaciones().get(i).getPrecio();
+            modelo.addRow(fila);
+        }
+        
     }
 
     /**
@@ -57,6 +70,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtTipHab = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,7 +144,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBestrella, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnRegistro1)
                 .addGap(40, 40, 40))
         );
@@ -187,7 +203,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                     .addComponent(txTelHues, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(btnRegistro)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registro Cliente", jPanel1);
@@ -236,10 +252,49 @@ public class VistaPrincipal extends javax.swing.JFrame {
                     .addComponent(txtTipHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addComponent(jButton1)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registro Habitacion", jPanel3);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "numero Hbaita", "Tipo", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab4", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -391,7 +446,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txDireccHue;
     private javax.swing.JTextField txDireccion;
     private javax.swing.JTextField txTelHotel;
