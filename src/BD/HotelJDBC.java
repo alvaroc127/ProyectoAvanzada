@@ -20,8 +20,12 @@ public class HotelJDBC {
            "DELETE Hotel WHERE idhotel= ?";
    private final String SQL_LISTA=
            "SELECT * FROM v1";
-   private final String SQL_NomCiu=
-           "SELECT nomciudad from ciudad ORDER BY idciudad DESC";
+   private final String SQL_BUSCAPORCIUD=
+           "SELECT * from ciudad where lower(nomciudad)=  ? ";
+   private final String SQL_INSERTACI=
+           "INSERT INTO ciudad (nomciudad) values(?)";
+   private final String SQL_BUSCAH=
+           "SELECT * FROM  hotel where idhotel=?";
    
     
    
@@ -132,5 +136,81 @@ public class HotelJDBC {
        }
    }
    
+   public ArrayList<Hotel> listaCiudad(String nomCiudad){
+       Connection co=null;
+       PreparedStatement stat=null;
+       ResultSet rs=null;
+       ArrayList<Hotel> ciudades=new ArrayList();
+       try{
+       co=Conexion.getConecxion();
+           stat=co.prepareStatement(SQL_BUSCAPORCIUD);
+           int index=1;
+           stat.setString(index++,nomCiudad);
+           rs=stat.executeQuery();
+           while(rs.next()){
+           Hotel ho=new Hotel();
+           ho.setId_ciudad(Integer.parseInt(rs.getString("idciudad")));
+           ho.setNombreCiudad(rs.getString("nomciudad"));
+           ciudades.add(ho);
+           }
+       }catch(SQLException  ex){
+       ex.printStackTrace();
+       }finally{
+           Conexion.close(co);
+           Conexion.close(stat);
+           Conexion.close(rs);
+           return ciudades;
+       }
+   }
+   
+   
+   public int insertarCiudad(String nombreCiudad){
+   Connection co=null;
+   PreparedStatement stat=null;
+   int rowns=0;
+   try{
+       int index=1;
+   co=Conexion.getConecxion();
+   stat=co.prepareStatement(SQL_INSERTACI);
+   stat.setString(index++, nombreCiudad);
+   rowns=stat.executeUpdate();
+   }catch(SQLException ex){
+   ex.printStackTrace();
+   }finally{
+   Conexion.close(co);
+   Conexion.close(stat);
+   return rowns;
+    }
+   }
+  
+    
+   public ArrayList<Hotel> buscaHotel(int  codHot){
+   Connection co=null;
+   PreparedStatement stat=null;
+   ResultSet st=null;
+   ArrayList<Hotel> hote=new ArrayList();
+   try{
+   int index=1;
+   co=Conexion.getConecxion();
+   stat=co.prepareStatement(SQL_INSERTACI);
+   stat.setInt(index++, codHot);
+   st=stat.executeQuery();
+   while(st.next()){
+       Hotel h=new Hotel(Integer.parseInt(st.getString("idhotel")),st.getString("nomhotel"),st.getString("dirhotel"),Integer.parseInt(st.getString("estrellas")),Integer.parseInt(st.getString("idciudad")),Integer.parseInt(st.getString("telhotel")));
+       hote.add(h);
+    }
+   }catch(SQLException ex){
+   ex.printStackTrace();
+   }finally{
+   Conexion.close(co);
+   Conexion.close(stat);
+   return hote;
+    }
+   
+   }
  
+   
+   
+   
+   
 }

@@ -17,6 +17,7 @@ public class ControladorHotel {
     
     private Hotel hote=new Hotel();
     private HotelJDBC hotelJDBC=new HotelJDBC();
+    private TablaHotel taho;
 
     public ControladorHotel() {
     }
@@ -41,12 +42,30 @@ public class ControladorHotel {
     hotelJDBC.insert(nombreCiudd, dirhhotel,estrellas,idciudad,telHotel);
     }
     
+    public void grabarCiudad(String nombreCiudad){
+    hotelJDBC.insertarCiudad(nombreCiudad);
+    }
+    
     public ArrayList<Hotel> listaHoteles(){
     return hotelJDBC.listaHot();
     }
     
+    public ArrayList<Hotel> listaCiudades(String nomciudad){
+    return hotelJDBC.listaCiudad(nomciudad);
+    }
+    
+    public void iniciarTabla(Hotel htls){
+        taho=new TablaHotel(htls);
+    }
+
     
     
-    
+    public TablaHotel getTaho() {
+        return taho;
+    }
+
+    public void setTaho(TablaHotel taho) {
+        this.taho = taho;
+    }
     
 }

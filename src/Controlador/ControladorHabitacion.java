@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class ControladorHabitacion {
     private Habitacion habit=new Habitacion();
     private HabitacionJDBC habJDBC=new HabitacionJDBC();
+    private TablaHabitacion tabH;
     
     public ControladorHabitacion(){
             
@@ -37,14 +38,26 @@ public class ControladorHabitacion {
         this.habit = habit;
     }
     
-   public void guardarHabita(double precio,String tipo){
-       habJDBC.insertarHabit(precio, tipo);
+   public void guardarHabita(double precio,String tipo,int idHotel){
+       habJDBC.insertarHabit(precio, tipo, idHotel);
    }
-    
-  public ArrayList<Habitacion> listaHabitaciones(){
-     return habJDBC.listarHaibtacion();
+
+    public TablaHabitacion getTabH() {
+        return tabH;
+    }
+
+    public void setTabH(TablaHabitacion tabH) {
+        this.tabH = tabH;
+    }
+   
+   
+  public ArrayList<Habitacion> listaHabitaciones(int idhotel){
+     return habJDBC.listarHaibtacion(idhotel);
     }
   
+  public void iniciarTabla(ArrayList<Habitacion> habs){
+  tabH=new TablaHabitacion(habs);
+  }
   
   
   

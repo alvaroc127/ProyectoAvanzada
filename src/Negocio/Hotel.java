@@ -25,6 +25,15 @@ public class Hotel {
     public Hotel() {
     }
 
+    public Hotel(int idhotel,String nomHotel,String dirHotel,int numE,int idCiud,int Telf){
+    this.id_hotel=idhotel;
+    nombre=nomHotel;
+    direccion=dirHotel;
+    numeroEstrellas=numE;
+    id_ciudad=idCiud;
+    telHot=Telf;
+    }
+    
     public Hotel(String direccion, int id_ciudad, int id_hotel, String nombre, String nombreCiudad, ArrayList<Habitacion> Habitaciones, int numeroEstrellas) {
         this.direccion = direccion;
         this.id_ciudad = id_ciudad;
@@ -116,6 +125,11 @@ public class Hotel {
 
     public void setHabitaciones(ArrayList<Habitacion> Habitaciones) {
         this.Habitaciones = Habitaciones;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
     
     

@@ -37,11 +37,7 @@ public class Proyecto20162 {
         }
         **/
         
-        for(int j=0;j<coH.listaHabitaciones().size();j++){
-            System.out.println(coH.listaHabitaciones().size()+"EST OES E LTAMAÑO");
-            System.out.println(coH.listaHabitaciones().get(j).getNumero_hab());
-            System.out.println(coH.listaHabitaciones().get(j).getTipo().getTipo());
-        }
+       
         //System.out.println(coH.listaHabitaciones().toString());
         
        for(int l=0;l<cl.validarCat(1032468188).size();l++){

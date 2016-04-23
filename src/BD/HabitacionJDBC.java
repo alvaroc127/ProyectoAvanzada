@@ -20,11 +20,10 @@ import java.util.ArrayList;
  * @author felipe
  */
 public class HabitacionJDBC {
-    private final String INSERTASQL="INSERT INTO habitacion (precio,tipo) VALUES (?,?)";
+    private final String INSERTASQL="INSERT INTO habitacion (precio,tipo,idhotel) VALUES (?,?,?)";
     private final String SQL_HABITACION=
-            "SELECT * FROM habitacion";
-    
-    public int insertarHabit(double precio,String tipo){
+            "SELECT * FROM habitacion natural join hotel where idhotel=?";    
+    public int insertarHabit(double precio,String tipo,int idhotel){
         Connection cos=null;
         PreparedStatement stat=null;
         Conexion.getConexion();
@@ -35,6 +34,7 @@ public class HabitacionJDBC {
         int index=1;
         stat.setDouble(index++,precio);
         stat.setString(index++, tipo);
+        stat.setInt(index++,idhotel);
         rowns=stat.executeUpdate();
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -46,15 +46,17 @@ public class HabitacionJDBC {
     }
     
     
-    public ArrayList<Habitacion> listarHaibtacion(){
+    public ArrayList<Habitacion> listarHaibtacion(int idhotel){
         Connection co=null;
         PreparedStatement stat=null;
         ResultSet rs=null;
         FctoryHabitacion fac=new FctoryHabitacion();
         ArrayList<Habitacion> habitaciones=new ArrayList<Habitacion>();
-        try{   
+        try{
+        int index=1;
         co=(Connection)Conexion.getConecxion();
         stat=co.prepareStatement(SQL_HABITACION);
+        stat.setInt(index++,idhotel);
         rs=stat.executeQuery();
         while(rs.next()){
             Habitacion hab1=new Habitacion(Integer.parseInt(rs.getString("numhab")),Double.parseDouble(rs.getString("precio")),fac.getHabitacion(rs.getString("tipo")));
@@ -68,6 +70,7 @@ public class HabitacionJDBC {
         return habitaciones;
         }
     }
+    
     
     
     
